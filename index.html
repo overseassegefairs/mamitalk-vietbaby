@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietbaby Expo 2026 - Exclusive for Mamitalk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 기존 버건디 대신 검정색 강조 */
+            --vb-black: #000000;
+            --vb-pink: #E94E77;
+            --vb-light-pink: #FCE7F3;
+        }
+        body { font-family: 'Noto Sans', sans-serif; background-color: #FFFFFF; overflow-x: hidden; }
+        
+        /* 헤드라인 2줄 구성 및 검정색 적용 */
+        .hero-title { 
+            color: var(--vb-black); 
+            line-height: 1.1; 
+            font-weight: 900; 
+            letter-spacing: -0.05em;
+        }
+        
+        /* 상단 전용 배너 */
+        .top-exclusive-banner {
+            background-color: var(--vb-black);
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .blob { position: absolute; z-index: -1; filter: opacity(0.5); }
+        .blob-1 { width: 400px; height: 400px; background: var(--vb-light-pink); border-radius: 40% 60% 70% 30%; top: -100px; left: -150px; }
+        
+        .benefit-card {
+            border: 1px solid #eee;
+            background: white;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .category-item {
+            background: #fdf2f8;
+            padding: 15px 10px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #fce7f3;
+            transition: all 0.2s ease;
+        }
+        .category-item:hover { background: #fae8f0; }
+
+        details summary::-webkit-details-marker { display: none; }
+        .hidden-view { display: none; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- 상단 마미톡 전용 안내 바 -->
+    <div class="top-exclusive-banner">
+        EXCLUSIVE FOR MAMITALK (마미톡 전용 사전등록 페이지)
+    </div>
+
+    <!-- Admin Mode Switch -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <button id="viewToggle" class="bg-black/80 text-white text-[10px] px-4 py-2 rounded-full shadow-lg backdrop-blur-sm">
+            Admin Mode
+        </button>
+    </div>
+
+    <!-- 1. LANDING PAGE VIEW -->
+    <div id="landingView">
+        <div class="blob blob-1"></div>
+
+        <main class="max-w-md mx-auto relative px-6 py-10">
+            <!-- Header Section -->
+            <header class="mb-8">
+                <div class="mb-6">
+                    <h1 class="hero-title text-4xl mb-2">
+                        2026 Ho Chi Minh<br>VIETBABY
+                    </h1>
+                    <div class="h-1.5 w-20 bg-vb-pink rounded-full"></div>
+                </div>
+                
+                <div class="mb-6">
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-tighter leading-tight">
+                        Vietnam Int'l Maternity Baby & Kids Fair
+                    </p>
+                </div>
+
+                <div class="bg-black text-white p-5 rounded-2xl shadow-xl flex justify-between items-center">
+                    <div>
+                        <p class="text-[10px] font-bold opacity-60 uppercase">Event Date</p>
+                        <p class="text-lg font-black tracking-tight">Jun. 4 (Thu) - 7 (Sun)</p>
+                    </div>
+                    <div class="text-right border-l border-white/20 pl-4">
+                        <p class="text-[10px] font-bold opacity-60 uppercase">Venue</p>
+                        <p class="text-sm font-bold">SECC, Dist 7</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Exclusive Link Message -->
+            <section class="mb-10 text-center py-4 border-y border-gray-100">
+                <h2 class="text-lg font-black text-black leading-tight">
+                    Đăng ký qua Mamitalk để nhận<br><span class="text-vb-pink">ĐẶC QUYỀN DUY NHẤT!</span>
+                </h2>
+                <p class="text-[10px] text-gray-400 mt-2">이 링크를 통해서만 제공되는 마미톡 회원 전용 특전입니다.</p>
+            </section>
+
+            <!-- Benefits -->
+            <section class="space-y-3 mb-12">
+                <div class="benefit-card p-4 flex items-center space-x-4 border-l-4 border-l-pink-500">
+                    <div class="text-2xl">🎫</div>
+                    <div>
+                        <h3 class="font-black text-black text-sm">MIỄN PHÍ VÀO CỔNG!</h3>
+                        <p class="text-[10px] text-gray-500 italic">사전등록 시 무료 입장 혜택</p>
+                    </div>
+                </div>
+                <div class="benefit-card p-4 flex items-center space-x-4 border-l-4 border-l-orange-400">
+                    <div class="text-2xl">🧸</div>
+                    <div>
+                        <h3 class="font-black text-black text-sm">QUÀ TẶNG GẤU BÔNG CHIPPY</h3>
+                        <p class="text-[10px] text-gray-500 italic">하루 50명 선착순 증정</p>
+                    </div>
+                </div>
+                <div class="benefit-card p-4 flex items-center space-x-4 border-l-4 border-l-red-500">
+                    <div class="text-2xl">✨</div>
+                    <div>
+                        <h3 class="font-black text-black text-sm">LUCKY DRAW: SKINCARE KIT</h3>
+                        <p class="text-[10px] text-gray-500 italic">10명 추첨 스킨케어 샘플 키트 증정</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Exhibition Detail -->
+            <section class="mb-12">
+                <div class="mb-8">
+                    <h2 class="text-xl font-black text-black mb-4">Về Vietbaby Expo</h2>
+                    <div class="space-y-4 bg-gray-50 p-5 rounded-2xl">
+                        <div class="flex items-start space-x-3">
+                            <span class="text-vb-pink font-bold">01</span>
+                            <p class="text-xs text-gray-600 leading-relaxed"><b>Ho Chi Minh Baby Fair (Since 2010):</b> 호치민 최초이자 최고의 역사를 자랑하는 베이비페어입니다.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-vb-pink font-bold">02</span>
+                            <p class="text-xs text-gray-600 leading-relaxed">임신, 출산, 육아 및 태교와 영아 관련 최신 정보를 한곳에서 만나보실 수 있습니다.</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <span class="text-vb-pink font-bold">03</span>
+                            <p class="text-xs text-gray-600 leading-relaxed">전시회 특별 할인 상품을 통해 똑똑하게 육아 비용을 절약하세요.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Categories with Emojis -->
+                <div>
+                    <h3 class="text-xs font-black text-gray-400 mb-4 uppercase tracking-widest text-center">Danh mục trưng bày / 전시품목</h3>
+                    <div class="category-grid">
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🛡️</div>
+                            <p class="font-bold text-xs text-black">An toàn (안전)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">유모차, 카시트 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🤰</div>
+                            <p class="font-bold text-xs text-black">Mẹ bầu (임신출산)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">태교, 수유용품 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🍼</div>
+                            <p class="font-bold text-xs text-black">Đồ dùng bé (영유아)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">분유, 이유식 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">📚</div>
+                            <p class="font-bold text-xs text-black">Giáo dục (학습교육)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">도서, 교재 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🏥</div>
+                            <p class="font-bold text-xs text-black">Dịch vụ (서비스)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">보험, 스튜디오 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🏠</div>
+                            <p class="font-bold text-xs text-black">Gia dụng (가전가구)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">유아가구, 가전 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">🧸</div>
+                            <p class="font-bold text-xs text-black">Đồ chơi (완구문구)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">지능계발, 퍼즐 등</p>
+                        </div>
+                        <div class="category-item">
+                            <div class="text-2xl mb-1">ℹ️</div>
+                            <p class="font-bold text-xs text-black">Thông tin (정보기관)</p>
+                            <p class="text-[9px] text-gray-400 mt-1">육아지원센터 등</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Registration Form -->
+            <section id="register" class="bg-white rounded-[2rem] p-8 shadow-2xl border border-gray-100 relative">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-black text-white px-8 py-2 rounded-full font-bold text-xs shadow-lg">
+                    ĐĂNG KÝ TẠI ĐÂY
+                </div>
+
+                <form id="registrationForm" class="space-y-4 pt-4">
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Họ và tên / 성함</label>
+                        <input type="text" id="name" required placeholder="Nhập tên" class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 focus:ring-2 focus:ring-black outline-none transition-all">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Số điện thoại / 연락처</label>
+                        <input type="tel" id="phone" required placeholder="090-xxxx-xxxx" class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 focus:ring-2 focus:ring-black outline-none transition-all">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase">Địa chỉ / 주소</label>
+                        <input type="text" id="address" required placeholder="Thành phố, Quận..." class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 focus:ring-2 focus:ring-black outline-none transition-all">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase">Độ tuổi / 나이</label>
+                            <select id="age" class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 outline-none">
+                                <option>20-25</option><option selected>26-30</option><option>31-35</option><option>36-40</option><option>40+</option>
+                            </select>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-bold text-gray-400 uppercase">Giới tính / 성별</label>
+                            <select id="gender" class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 outline-none">
+                                <option value="Female">Nữ</option><option value="Male">Nam</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <details class="bg-gray-50 rounded-xl border border-gray-100 overflow-hidden">
+                            <summary class="p-3 text-[10px] font-bold text-gray-500 cursor-pointer flex justify-between">CHÍNH SÁCH BẢO MẬT <span>▼</span></summary>
+                            <div class="p-3 text-[9px] text-gray-400 bg-white border-t leading-relaxed">
+                                Tuân thủ Nghị định 13/2023/NĐ-CP. Thông tin của bạn được sử dụng để cung cấp vé mời và thông tin sự kiện Vietbaby 2026.
+                            </div>
+                        </details>
+                        <label class="flex items-start space-x-2 mt-4 cursor-pointer">
+                            <input type="checkbox" required class="mt-1 w-4 h-4 rounded text-black border-gray-300">
+                            <span class="text-[10px] text-gray-400 leading-tight">Tôi đồng ý với các điều khoản và đăng ký tham quan.</span>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-black text-white py-5 rounded-2xl font-black text-lg shadow-xl hover:bg-gray-900 active:scale-95 transition-all mt-4 tracking-widest uppercase">
+                        NHẬN VÉ MIỄN PHÍ
+                    </button>
+                </form>
+            </section>
+
+            <footer class="mt-16 text-center text-[10px] text-gray-300 space-y-4">
+                <div class="flex justify-center space-x-6 grayscale opacity-50">
+                    <span class="font-black">coex</span>
+                    <span class="font-bold">SEGE FAIRS</span>
+                </div>
+                <p>© 2026 VIETBABY EXPO · SECC HO CHI MINH</p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 2. ADMIN DASHBOARD VIEW -->
+    <div id="adminView" class="hidden-view bg-gray-50 min-h-screen p-4 md:p-10">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h1 class="text-2xl font-black text-black">Admin Dashboard</h1>
+                    <p class="text-sm text-gray-500 italic">Mamitalk Exclusive List</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button id="exportBtn" class="bg-green-600 text-white px-5 py-2 rounded-lg font-bold shadow-md hover:bg-green-700 flex items-center">
+                        📊 Export CSV
+                    </button>
+                    <button id="backToLanding" class="bg-white border border-gray-300 px-5 py-2 rounded-lg font-bold hover:bg-gray-100">
+                        Back to Landing
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-50 border-b border-gray-200">
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">STT</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">Tên</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">SĐT</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">Địa chỉ</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">Tuổi</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">Phái</th>
+                                <th class="p-4 font-bold text-xs uppercase text-gray-400">Thời gian</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendeeList"></tbody>
+                    </table>
+                </div>
+                <div id="loadingIndicator" class="text-center py-10 text-gray-300">Đang tải dữ liệu...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black/90 hidden flex items-center justify-center p-6 z-[60] backdrop-blur-sm">
+        <div class="bg-white rounded-[3rem] p-10 text-center max-w-sm w-full shadow-2xl">
+            <div class="text-6xl mb-6">🎉</div>
+            <h2 class="text-2xl font-black text-black mb-2">Hoàn tất!</h2>
+            <p class="text-gray-500 text-sm mb-8 leading-relaxed">
+                Đăng ký của bạn đã được ghi nhận.<br>Hẹn gặp bạn tại Vietbaby 2026!
+            </p>
+            <button onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-black text-white py-4 rounded-2xl font-bold">Xác nhận</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const firebaseConfig = JSON.parse(__firebase_config);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'vietbaby-2026-mamitalk';
+
+        let user = null;
+        let attendees = [];
+
+        // Auth Logic
+        const initAuth = async () => {
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                await signInWithCustomToken(auth, __initial_auth_token);
+            } else {
+                await signInAnonymously(auth);
+            }
+        };
+        initAuth();
+
+        onAuthStateChanged(auth, (u) => {
+            user = u;
+            if (user) fetchData();
+        });
+
+        // Form Handling
+        const registrationForm = document.getElementById('registrationForm');
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!user) return;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "ĐANG XỬ LÝ...";
+
+            try {
+                const data = {
+                    name: document.getElementById('name').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    age: document.getElementById('age').value,
+                    gender: document.getElementById('gender').value,
+                    source: "mamitalk_exclusive",
+                    timestamp: serverTimestamp()
+                };
+
+                await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'registrations'), data);
+                document.getElementById('successModal').classList.remove('hidden');
+                registrationForm.reset();
+            } catch (error) {
+                console.error("Firestore Error:", error);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = "NHẬN VÉ MIỄN PHÍ";
+            }
+        });
+
+        // Admin Fetching
+        function fetchData() {
+            if (!user) return;
+            const q = collection(db, 'artifacts', appId, 'public', 'data', 'registrations');
+            onSnapshot(q, (snapshot) => {
+                attendees = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                attendees.sort((a, b) => (b.timestamp?.seconds || 0) - (a.timestamp?.seconds || 0));
+                renderTable();
+            });
+        }
+
+        function renderTable() {
+            const list = document.getElementById('attendeeList');
+            document.getElementById('loadingIndicator').style.display = 'none';
+            list.innerHTML = '';
+            attendees.forEach((p, i) => {
+                const date = p.timestamp ? new Date(p.timestamp.seconds * 1000).toLocaleString() : '-';
+                list.innerHTML += `
+                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                        <td class="p-4 text-xs text-gray-300">${i + 1}</td>
+                        <td class="p-4 font-bold text-sm text-gray-700">${p.name}</td>
+                        <td class="p-4 text-sm text-gray-600">${p.phone}</td>
+                        <td class="p-4 text-xs text-gray-500">${p.address}</td>
+                        <td class="p-4 text-sm text-gray-500">${p.age}</td>
+                        <td class="p-4 text-sm text-gray-500">${p.gender}</td>
+                        <td class="p-4 text-[10px] text-gray-300">${date}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Toggles
+        document.getElementById('viewToggle').addEventListener('click', () => {
+            document.getElementById('landingView').classList.toggle('hidden-view');
+            document.getElementById('adminView').classList.toggle('hidden-view');
+        });
+        document.getElementById('backToLanding').addEventListener('click', () => {
+            document.getElementById('landingView').classList.remove('hidden-view');
+            document.getElementById('adminView').classList.add('hidden-view');
+        });
+
+        // CSV
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            if (attendees.length === 0) return;
+            const headers = ["STT", "Name", "Phone", "Address", "Age", "Gender", "Date"];
+            const rows = attendees.map((p, i) => [i + 1, p.name, p.phone, p.address, p.age, p.gender, p.timestamp ? new Date(p.timestamp.seconds * 1000).toLocaleString() : '']);
+            let csvContent = "\uFEFF" + headers.join(",") + "\n" + rows.map(r => r.map(c => `"${c}"`).join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "Vietbaby2026_Mamitalk_List.csv";
+            link.click();
+        });
+    </script>
+</body>
+</html>
