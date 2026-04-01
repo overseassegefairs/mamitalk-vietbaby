@@ -8,14 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* 기존 버건디 대신 검정색 강조 */
             --vb-black: #000000;
             --vb-pink: #E94E77;
             --vb-light-pink: #FCE7F3;
         }
         body { font-family: 'Noto Sans', sans-serif; background-color: #FFFFFF; overflow-x: hidden; }
         
-        /* 헤드라인 2줄 구성 및 검정색 적용 */
         .hero-title { 
             color: var(--vb-black); 
             line-height: 1.1; 
@@ -23,7 +21,6 @@
             letter-spacing: -0.05em;
         }
         
-        /* 상단 전용 배너 */
         .top-exclusive-banner {
             background-color: var(--vb-black);
             color: white;
@@ -249,7 +246,7 @@
                         <details class="bg-gray-50 rounded-xl border border-gray-100 overflow-hidden">
                             <summary class="p-3 text-[10px] font-bold text-gray-500 cursor-pointer flex justify-between">CHÍNH SÁCH BẢO MẬT <span>▼</span></summary>
                             <div class="p-3 text-[9px] text-gray-400 bg-white border-t leading-relaxed">
-                                Tuân thủ Nghị định 13/2023/NĐ-CP. Thông tin của bạn được sử dụng để cung cấp vé mời và thông tin sự kiện Vietbaby 2026.
+                                Tuân thủ Nghị định 13/2023/NĐ-CP. Thông tin의 bạn được sử dụng để cung cấp vé mời và thông tin sự kiện Vietbaby 2026.
                             </div>
                         </details>
                         <label class="flex items-start space-x-2 mt-4 cursor-pointer">
@@ -314,13 +311,28 @@
         </div>
     </div>
 
+    <!-- Admin Login Modal -->
+    <div id="adminAuthModal" class="fixed inset-0 bg-black/80 hidden flex items-center justify-center p-6 z-[100] backdrop-blur-md">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full shadow-2xl text-center">
+            <div class="text-3xl mb-4">🔐</div>
+            <h2 class="text-xl font-black text-black mb-2">관리자 인증</h2>
+            <p class="text-xs text-gray-500 mb-6">개인정보 보호를 위해 비밀번호를 입력해주세요.</p>
+            <input type="password" id="adminPassword" placeholder="비밀번호 입력" class="w-full bg-gray-50 px-4 py-3 rounded-xl border border-gray-100 focus:ring-2 focus:ring-black outline-none mb-4 text-center tracking-widest">
+            <div id="authErrorMessage" class="text-red-500 text-[10px] mb-4 hidden">비밀번호가 올바르지 않습니다.</div>
+            <div class="flex space-x-2">
+                <button id="cancelAuth" class="flex-1 bg-gray-100 text-gray-500 py-3 rounded-xl font-bold text-sm">취소</button>
+                <button id="submitAuth" class="flex-2 bg-black text-white py-3 px-8 rounded-xl font-bold text-sm">확인</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 bg-black/90 hidden flex items-center justify-center p-6 z-[60] backdrop-blur-sm">
         <div class="bg-white rounded-[3rem] p-10 text-center max-w-sm w-full shadow-2xl">
             <div class="text-6xl mb-6">🎉</div>
             <h2 class="text-2xl font-black text-black mb-2">Hoàn tất!</h2>
             <p class="text-gray-500 text-sm mb-8 leading-relaxed">
-                Đăng ký của bạn đã được ghi nhận.<br>Hẹn gặp bạn tại Vietbaby 2026!
+                Đăng ký의 bạn đã được ghi nhận.<br>Hẹn gặp bạn tại Vietbaby 2026!
             </p>
             <button onclick="document.getElementById('successModal').classList.add('hidden')" class="w-full bg-black text-white py-4 rounded-2xl font-bold">Xác nhận</button>
         </div>
@@ -339,6 +351,7 @@
 
         let user = null;
         let attendees = [];
+        const ADMIN_PWD = "vietbaby2026"; // 관리자 비밀번호
 
         // Auth Logic
         const initAuth = async () => {
@@ -418,17 +431,62 @@
             });
         }
 
-        // Toggles
-        document.getElementById('viewToggle').addEventListener('click', () => {
-            document.getElementById('landingView').classList.toggle('hidden-view');
-            document.getElementById('adminView').classList.toggle('hidden-view');
-        });
-        document.getElementById('backToLanding').addEventListener('click', () => {
-            document.getElementById('landingView').classList.remove('hidden-view');
-            document.getElementById('adminView').classList.add('hidden-view');
+        // --- Admin Authentication Logic ---
+        const viewToggle = document.getElementById('viewToggle');
+        const adminAuthModal = document.getElementById('adminAuthModal');
+        const adminPasswordInput = document.getElementById('adminPassword');
+        const submitAuthBtn = document.getElementById('submitAuth');
+        const cancelAuthBtn = document.getElementById('cancelAuth');
+        const authErrorMessage = document.getElementById('authErrorMessage');
+
+        viewToggle.addEventListener('click', () => {
+            // 이미 관리자 모드인 경우 (토글로 돌아가기)
+            if (!document.getElementById('adminView').classList.contains('hidden-view')) {
+                toggleView(false);
+                return;
+            }
+            // 관리자 인증 모달 표시
+            adminAuthModal.classList.remove('hidden');
+            adminPasswordInput.focus();
         });
 
-        // CSV
+        cancelAuthBtn.addEventListener('click', () => {
+            adminAuthModal.classList.add('hidden');
+            adminPasswordInput.value = '';
+            authErrorMessage.classList.add('hidden');
+        });
+
+        submitAuthBtn.addEventListener('click', performAuth);
+        adminPasswordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performAuth();
+        });
+
+        function performAuth() {
+            if (adminPasswordInput.value === ADMIN_PWD) {
+                adminAuthModal.classList.add('hidden');
+                adminPasswordInput.value = '';
+                authErrorMessage.classList.add('hidden');
+                toggleView(true);
+            } else {
+                authErrorMessage.classList.remove('hidden');
+            }
+        }
+
+        function toggleView(isAdmin) {
+            if (isAdmin) {
+                document.getElementById('landingView').classList.add('hidden-view');
+                document.getElementById('adminView').classList.remove('hidden-view');
+            } else {
+                document.getElementById('landingView').classList.remove('hidden-view');
+                document.getElementById('adminView').classList.add('hidden-view');
+            }
+        }
+
+        document.getElementById('backToLanding').addEventListener('click', () => {
+            toggleView(false);
+        });
+
+        // CSV Export
         document.getElementById('exportBtn').addEventListener('click', () => {
             if (attendees.length === 0) return;
             const headers = ["STT", "Name", "Phone", "Address", "Age", "Gender", "Date"];
